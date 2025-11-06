@@ -1,48 +1,14 @@
-variable "resource_group_name" {
-  description = "The name of the resource group."
-  type        = string
-}
-
-variable "region" {
-  description = "The deployment's region."
-  type        = string
-  default     = "eastus2"
-}
-
-variable "environment" {
-  description = "The environment where the resources will be deployed."
-  type        = string
-  default     = "dev"
-}
-
-variable "owner" {
-  description = "The resource's owner."
-  type        = string
-  default     = "Gaspar Acevedo Zain"
-}
-
-variable "vnet_specs" {
-  description = <<EOT
-    vnet_specs = {
-        name:           String. The Virtual Network name.
-        address_space:  String. The Virtual Network address space.
-    }
-  EOT
-  type = object({
-    name          = string
-    address_space = string
-  })
-}
-
 variable "monitor_action_group" {
   description = <<EOT
         monitor_action_group: {
             name (string): The name of the monitor action group.
+            resource_group_name (string): The resource group to monitor.
             short_name (string): The short name of the monitor action group.
         }
     EOT
   type = object({
     name                = string
+    resource_group_name = string
     short_name          = string
   })
 }
@@ -51,6 +17,7 @@ variable "consumption_budget_data" {
   description = <<EOT
     consumption_budget_data: {
         name (string): The name of the consumption budget data.
+        resource_group_id (string): The id of the resource group for which the budget will be created.
         amount (number): The total amount of cost to track with the budget.
         time_grain (string): The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of BillingAnnual, BillingMonth, BillingQuarter, Annually, Monthly and Quarterly. Defaults to Monthly. Changing this forces a new resource to be created.
         time_period (object): {
@@ -69,6 +36,7 @@ variable "consumption_budget_data" {
 
   type = object({
     name              = string
+    resource_group_id = string
     amount            = number
     time_grain        = string
     time_period = object({

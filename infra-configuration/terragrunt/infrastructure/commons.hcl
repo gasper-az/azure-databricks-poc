@@ -10,6 +10,10 @@ locals {
   environments_hcl = read_terragrunt_config("../_envcommon/environments.hcl")
   environments     = local.environments_hcl.locals.environments
 
+  # azure resources
+  azure_resources_hcl                       = read_terragrunt_config("../_envcommon/azure_resources.hcl")
+  azurerm_consumption_budget_resource_group = local.azure_resources_hcl.locals.azurerm_consumption_budget_resource_group
+
   # tflint
   tflint_config = {
     commands = ["plan"]
