@@ -22,6 +22,16 @@ inputs = {
     name          = "gasper-dev-databricks-vnet001"
     address_space = "10.150.0.0/16"
   }
+  databricks_subnets = {
+    public_subnet = {
+      name = "gasper-dev-databricks-public-snet001"
+      address_prefixes = "10.150.0.0/20"
+    }
+    private_subnet = {
+      name = "gasper-dev-databricks-private-snet001"
+      address_prefixes = "10.150.16.0/20"
+    }
+  }
   monitor_action_group = {
     name       = "gasper-dev-databricks-mag001"
     short_name = "gaz-mag001"

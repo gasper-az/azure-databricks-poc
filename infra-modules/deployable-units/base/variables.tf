@@ -42,8 +42,8 @@ variable "monitor_action_group" {
         }
     EOT
   type = object({
-    name                = string
-    short_name          = string
+    name       = string
+    short_name = string
   })
 }
 
@@ -68,9 +68,9 @@ variable "consumption_budget_data" {
   EOT
 
   type = object({
-    name              = string
-    amount            = number
-    time_grain        = string
+    name       = string
+    amount     = number
+    time_grain = string
     time_period = object({
       start_date = string
       end_date   = optional(string)
@@ -82,5 +82,30 @@ variable "consumption_budget_data" {
       enabled        = bool
       contact_emails = list(string)
     }))
+  })
+}
+
+variable "databricks_subnets" {
+  description = <<EOT
+    databricks_subnets: {
+      public_subnet: {
+        name (string): The subnet's name.
+        address_prefixes: The subnet's address prefix.
+      }
+      private_subnet: {
+        name (string): The subnet's name.
+        address_prefixes: The subnet's address prefix.
+      }
+    }
+  EOT
+  type = object({
+    public_subnet = object({
+      name             = string
+      address_prefixes = string
+    })
+    private_subnet = object({
+      name             = string
+      address_prefixes = string
+    })
   })
 }
