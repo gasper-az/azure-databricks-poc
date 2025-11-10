@@ -34,6 +34,14 @@ inputs = {
       nsg_name         = "gasper-dev-databricks-private-nsg001"
     }
   }
+  databricks_workspace_specs = {
+    name = "gasper-dev-databricks-dbw001"
+    sku  = local.variables.common_vars.databricks_workspace.sku.standard
+    storage_account = {
+      name = "gasperdevdbwsa001"
+      sku  = local.variables.common_vars.storage_account.sku.Standard_LRS
+    }
+  }
   monitor_action_group = {
     name       = "gasper-dev-databricks-mag001"
     short_name = "gaz-mag001"
