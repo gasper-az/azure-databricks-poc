@@ -113,3 +113,24 @@ variable "databricks_subnets" {
     })
   })
 }
+
+variable "databricks_workspace_specs" {
+  description = <<EOT
+    databricks_workspace_specs: {
+      name (string): Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
+      sku (string): The sku to use for the Databricks Workspace. Possible values are standard, premium, or trial. Defaults to standard.
+      storage_account = {
+        name (string): Default Databricks File Storage account name. Defaults to a randomized name(e.g. dbstoragel6mfeghoe5kxu). Changing this forces a new resource to be created.
+        sku (string): Optional. Storage account SKU name. Possible values include Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_GZRS, Standard_RAGZRS, Standard_ZRS, Premium_LRS or Premium_ZRS. Defaults to Standard_LRS.
+      }
+    }
+  EOT
+  type = object({
+    name = string
+    sku  = optional(string, "standard")
+    storage_account = object({
+      name = string
+      sku  = optional(string, "Standard_LRS")
+    })
+  })
+}
