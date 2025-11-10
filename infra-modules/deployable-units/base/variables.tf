@@ -90,11 +90,13 @@ variable "databricks_subnets" {
     databricks_subnets: {
       public_subnet: {
         name (string): The subnet's name.
-        address_prefixes: The subnet's address prefix.
+        address_prefixes (string): The subnet's address prefix.
+        nsg_name (string): name of the NSG that will be associated to the subnet.
       }
       private_subnet: {
         name (string): The subnet's name.
-        address_prefixes: The subnet's address prefix.
+        address_prefixes (string): The subnet's address prefix.
+        nsg_name (string): name of the NSG that will be associated to the subnet.
       }
     }
   EOT
@@ -102,10 +104,12 @@ variable "databricks_subnets" {
     public_subnet = object({
       name             = string
       address_prefixes = string
+      nsg_name         = string
     })
     private_subnet = object({
       name             = string
       address_prefixes = string
+      nsg_name         = string
     })
   })
 }

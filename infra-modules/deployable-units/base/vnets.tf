@@ -28,6 +28,18 @@ module "databricks_public_subnet" {
   ]
 }
 
+resource "azurerm_network_security_group" "public_subnet_nsg" {
+  name                = var.databricks_subnets.public_subnet.nsg_name
+  location            = azurerm_resource_group.resource_group.location
+  resource_group_name = azurerm_resource_group.resource_group.name
+  tags                = local.tags
+}
+
+resource "azurerm_subnet_network_security_group_association" "public_subnet_nsg_association" {
+  subnet_id                 = module.databricks_public_subnet.id
+  network_security_group_id = azurerm_network_security_group.public_subnet_nsg.id
+}
+
 module "databricks_private_subnet" {
   source               = "../../modules/subnet"
   name                 = var.databricks_subnets.private_subnet.name
@@ -47,4 +59,16 @@ module "databricks_private_subnet" {
       }
     }
   ]
+}
+
+resource "azurerm_network_security_group" "private_subnet_nsg" {
+  name                = var.databricks_subnets.private_subnet.nsg_name
+  location            = azurerm_resource_group.resource_group.location
+  resource_group_name = azurerm_resource_group.resource_group.name
+  tags                = local.tags
+}
+
+resource "azurerm_subnet_network_security_group_association" "private_subnet_nsg_association" {
+  subnet_id                 = module.databricks_private_subnet.id
+  network_security_group_id = azurerm_network_security_group.private_subnet_nsg.id
 }

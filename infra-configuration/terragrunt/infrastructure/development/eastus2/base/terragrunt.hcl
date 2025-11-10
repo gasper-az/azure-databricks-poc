@@ -24,12 +24,14 @@ inputs = {
   }
   databricks_subnets = {
     public_subnet = {
-      name = "gasper-dev-databricks-public-snet001"
+      name             = "gasper-dev-databricks-public-snet001"
       address_prefixes = "10.150.0.0/20"
+      nsg_name         = "gasper-dev-databricks-public-nsg001"
     }
     private_subnet = {
-      name = "gasper-dev-databricks-private-snet001"
+      name             = "gasper-dev-databricks-private-snet001"
       address_prefixes = "10.150.16.0/20"
+      nsg_name         = "gasper-dev-databricks-private-nsg001"
     }
   }
   monitor_action_group = {
