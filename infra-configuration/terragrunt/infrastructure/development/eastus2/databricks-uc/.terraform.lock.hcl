@@ -15,18 +15,18 @@ provider "registry.opentofu.org/databricks/databricks" {
 }
 
 provider "registry.opentofu.org/hashicorp/azurerm" {
-  version     = "4.51.0"
+  version     = "4.53.0"
   constraints = ">= 4.4.0"
   hashes = [
-    "h1:GpuGddGPV/aOezEb/RKs2wmMtYzseIAjgPfF1NvYQ+I=",
-    "zh:11569346068cb85aacd5c3116ee0cd14b950aee99fe87906373550c5cdefa47e",
-    "zh:1f290754329426820df8a29242437cebd4f8098168cc69ac24749c54fe5a58f6",
-    "zh:3593c957c9c251c7cdfb5dd457a7183c7a0f7124933f1fa0a4b0999020d7cfa4",
-    "zh:57867b2d9e9406d0fdea248ed32efbf435c21b19e6a02b3002bd7e8cfc0d493f",
-    "zh:6049b1df48a167185e1dd467008f4bd56629fea94be9dc72dbecb2111e91ae98",
-    "zh:aa7feb7b5cc5f5b28f7cb1229e38afdcb64eafafaf7b38e170f9a70d4a2c5644",
-    "zh:cfcb7316bf20f794734f821d43a8ce7caab648cdfd0b09239dc484d7f7bda33f",
-    "zh:d493dee83c3dfb1cd2e2a9bcbef79cfce8a54553cd3ab0f34789bb23623c642e",
-    "zh:f18d9aa37a99a8fab25fa808776a66dba04baa0a759ba8565f35fbc74e206a8c",
+    "h1:Zuy9Mbdh8cKqRozWPl0uX0IzbEOZ87uV4LfpKTShcrM=",
+    "zh:04b34bc03c24f2b75343a0176a3345ce2f4a44ab7565232766218649486854a8",
+    "zh:3708e37b1efce04e02d89f948ff540fc43e8842bbbf8e311e31c397055e7fc3e",
+    "zh:3e0590146c7d76a147eb64f8967ab6160e8cb69287d14f588875760f54bebef5",
+    "zh:71fdd62b1295bcbeea9f3ce194ddafeeaad40579915d21bfd71ed7fe090f8387",
+    "zh:98276b0174b2e6ffa0835813524f2151b38f9bd6ef177416fa0e4880624c7227",
+    "zh:b0568d4909cdb8d291643c5214b0c645d0a42a6ae26f55fa1fd13fbc33a744a4",
+    "zh:b18bb7578a21e737b738c578fccf35b542cccc23a95d11f4e3e3205c26e27477",
+    "zh:c2878edd16da568d0f4816a8d2a4b12c259f8f7048f58c195f87feec9e347b92",
+    "zh:c7ed810045ac966e8631dbf62e038b0cb0b88ff0e7befefafe88be615cd12bbb",
   ]
 }

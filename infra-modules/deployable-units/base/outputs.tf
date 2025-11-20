@@ -47,3 +47,13 @@ output "private_subnet_nsg_association_id" {
   description = "The ID of the private subnet NSG association."
   value       = azurerm_subnet_network_security_group_association.private_subnet_nsg_association.id
 }
+
+output "databricks_workspace_id" {
+  description = "The unique identifier of the databricks workspace in Databricks control plane."
+  value       = module.databricks_workspace.workspace_id
+}
+
+output "databricks_workspace_url" {
+  description = "The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'"
+  value       = module.databricks_workspace.workspace_url
+}

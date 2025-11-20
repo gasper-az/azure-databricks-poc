@@ -10,3 +10,5 @@
   - Configuration (PowerShell): `$env:TF_VAR_tenant_id="<value>"`
 - `TF_VAR_subscription_id`: Azure Subscription ID.
   - Configuration (PowerShell): `$env:TF_VAR_subscription_id="<value>"`
+- `TF_VAR_databricks_account_id`: Databricks Account ID
+  - Configuration (PowerShell): `$env:TF_VAR_databricks_account_id`

@@ -43,7 +43,7 @@ remote_state {
 }
 
 generate "required_providers" {
-  path      = "main.tf"
+  path      = "required_providers.tf"
   if_exists = "overwrite"
   contents  = <<EOF
 terraform {
@@ -53,13 +53,16 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">= 4.4.0"
     }
+    databricks = {
+      source = "databricks/databricks"
+    }
   }
 }
 EOF
 }
 
-generate "provider" {
-  path      = "provider.tf"
+generate "azurerm_provider" {
+  path      = "azurerm_provider.tf"
   if_exists = "overwrite"
   contents  = <<EOF
 provider "azurerm" {
