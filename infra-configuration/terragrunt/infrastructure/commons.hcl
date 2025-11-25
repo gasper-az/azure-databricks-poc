@@ -15,6 +15,7 @@ locals {
   azurerm_consumption_budget_resource_group = local.azure_resources_hcl.locals.azurerm_consumption_budget_resource_group
   databricks_workspace                      = local.azure_resources_hcl.locals.databricks_workspace
   storage_account                           = local.azure_resources_hcl.locals.storage_account
+  storage_container                         = local.azure_resources_hcl.locals.storage_container
 
   # tflint
   tflint_config = {
