@@ -19,3 +19,9 @@ module "unity_catalog_storage_container" {
   storage_account_id    = module.unity_catalog_storage_account.id
   container_access_type = var.databricks_uc.storage_container.container_access_type
 }
+
+resource "azurerm_role_assignment" "identity_data_contributor" {
+  scope                = module.unity_catalog_storage_account.id
+  role_definition_name = local.storage_blob_data_contributor_role_name
+  principal_id         = module.databricks_access_connectors_managed_identity.principal_id
+}
