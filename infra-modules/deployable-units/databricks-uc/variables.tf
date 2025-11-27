@@ -43,6 +43,10 @@ variable "databricks_uc" {
         name:   (string). The name of the access connector for Databricks Unity Catalog.
         managed_identity_name:   (String). The name of the managed identity for the access connector.
       }
+      metastore = {
+        name:   (string). The name of the metastore.
+        owner:  (string). The metastore's owner.
+      }
       storage_account = {
         name: (string). The name of the storage account.
         account_kind: (string). Defines the Kind of account. Valid options are BlobStorage, BlockBlobStorage, FileStorage, Storage and StorageV2. Defaults to StorageV2.
@@ -63,6 +67,10 @@ variable "databricks_uc" {
     access_conector = object({
       name                  = string
       managed_identity_name = string
+    })
+    metastore = object({
+      name  = string
+      owner = string
     })
     storage_account = object({
       name                          = string

@@ -12,3 +12,8 @@ output "databricks_access_connectors_managed_identity_id" {
   description = "The ID of the Databricks access connectors' managed identity."
   value       = module.databricks_access_connectors_managed_identity.id
 }
+
+output "metastore_id" {
+  description = "The ID of the metastore."
+  value       = module.metastore.id
+}

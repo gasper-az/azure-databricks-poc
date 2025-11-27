@@ -25,3 +25,22 @@ resource "azurerm_role_assignment" "identity_data_contributor" {
   role_definition_name = local.storage_blob_data_contributor_role_name
   principal_id         = module.databricks_access_connectors_managed_identity.principal_id
 }
+
+locals {
+  storage_root = format("abfss://%s@%s.dfs.core.windows.net/",
+    module.unity_catalog_storage_container.name,
+  module.unity_catalog_storage_account.name)
+}
+
+module "metastore" {
+  source        = "../../modules/databricks-metastore"
+  name          = var.databricks_uc.metastore.name
+  owner         = var.databricks_uc.metastore.owner
+  storage_root  = local.storage_root
+  region        = var.region
+  force_destroy = true
+  workspace_id  = var.databricks_workspace_id
+  providers = {
+    databricks = databricks
+  }
+}

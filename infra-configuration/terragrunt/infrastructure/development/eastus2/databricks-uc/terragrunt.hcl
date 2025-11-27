@@ -33,6 +33,10 @@ inputs = {
       name                  = "gasper-dev-databricks-ac001"
       managed_identity_name = "gasper-dev-databricks-mi001"
     }
+    metastore = {
+      name  = "gasper-dev-metastore-001"
+      owner = "Gaspar Acevedo Zain"
+    }
     storage_account = {
       name                          = "gasperdevucsa001"
       account_kind                  = local.variables.common_vars.storage_account.account_kind.StorageV2
